@@ -19,7 +19,7 @@ std = [0.229, 0.224, 0.225]
 class Config(object):
     # General Args
     use_gpu = True
-    model_path = 'checkpoints/1_style+2.pth'  # pretrain model path (for resume training or test)
+    model_path = 'checkpoints/1_style2.pth'  # pretrain model path (for resume training or test)
 
     # Train Args
     image_size = 256  # image crop_size for training
@@ -39,8 +39,8 @@ class Config(object):
     debug_file = '/tmp/debugnn'  # touch $debug_fie to interrupt and enter ipdb
 
     # Test Args
-    content_path = 'video/%s.jpg'  # input file to do style transfer [for test]
-    result_path = 'pic/%s.jpg'  # style transfer result [for test]
+    content_path = 'content2.jpg'  # input file to do style transfer [for test]
+    result_path = 'output2.png'  # style transfer result [for test]
 
 
 def stylize(**kwargs):
@@ -49,7 +49,7 @@ def stylize(**kwargs):
     """
     opt = Config()
     # model setup
-    if opt.model_path == 'checkpoints/0_style2.pth':
+    if opt.model_path == 'checkpoints/1_style2.pth':
         style_model = TransformerNet2().eval()
     else:
         style_model = TransformerNet().eval()
